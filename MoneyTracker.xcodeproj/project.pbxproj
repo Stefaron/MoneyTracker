@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		20116C1930AEA87500579BC5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 20116C1830AEA86A00579BC5 /* .swiftlint.yml */; };
+		20116C1B30AEA88B00579BC5 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 20116C1A30AEA88500579BC5 /* .swiftformat */; };
+		A1B2C3D40000000000000001 /* MoneyTrackerKit in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D40000000000000002 /* MoneyTrackerKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		20E7C05230AE820C007737CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20116C1830AEA86A00579BC5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		20116C1A30AEA88500579BC5 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		20E7C04130AE820A007737CB /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20E7C05130AE820C007737CB /* MoneyTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20E7C05B30AE820C007737CB /* MoneyTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B2C3D40000000000000001 /* MoneyTrackerKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +84,8 @@
 		20E7C03830AE820A007737CB = {
 			isa = PBXGroup;
 			children = (
+				20116C1A30AEA88500579BC5 /* .swiftformat */,
+				20116C1830AEA86A00579BC5 /* .swiftlint.yml */,
 				20E7C04330AE820A007737CB /* MoneyTracker */,
 				20E7C05430AE820C007737CB /* MoneyTrackerTests */,
 				20E7C05E30AE820C007737CB /* MoneyTrackerUITests */,
@@ -112,6 +123,7 @@
 			);
 			name = MoneyTracker;
 			packageProductDependencies = (
+				A1B2C3D40000000000000002 /* MoneyTrackerKit */,
 			);
 			productName = MoneyTracker;
 			productReference = 20E7C04130AE820A007737CB /* MoneyTracker.app */;
@@ -195,6 +207,9 @@
 			);
 			mainGroup = 20E7C03830AE820A007737CB;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				20E7C08330AE96FE007737CB /* XCLocalSwiftPackageReference "MoneyTrackerKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 20E7C04230AE820A007737CB /* Products */;
 			projectDirPath = "";
@@ -212,6 +227,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20116C1B30AEA88B00579BC5 /* .swiftformat in Resources */,
+				20116C1930AEA87500579BC5 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +575,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		20E7C08330AE96FE007737CB /* XCLocalSwiftPackageReference "MoneyTrackerKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = MoneyTrackerKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A1B2C3D40000000000000002 /* MoneyTrackerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20E7C08330AE96FE007737CB /* XCLocalSwiftPackageReference "MoneyTrackerKit" */;
+			productName = MoneyTrackerKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 20E7C03930AE820A007737CB /* Project object */;
 }

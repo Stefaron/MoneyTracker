@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "16.2"
+
+      - name: Lint
+        run: |
+          brew install swiftlint swiftformat
+          swiftlint --strict
+          swiftformat . --lint
+
+      - name: Package tests
+        working-directory: MoneyTrackerKit
+        run: >
+          xcodebuild test
+          -scheme MoneyTrackerKit-Package
+          -destination 'platform=iOS Simulator,name=iPhone 16'
+          CODE_SIGNING_ALLOWED=NO
+
+      - name: App build
+        run: >
+          xcodebuild build
+          -project MoneyTracker.xcodeproj
+          -scheme MoneyTracker
+          -destination 'platform=iOS Simulator,name=iPhone 16'
+          CODE_SIGNING_ALLOWED=NO
