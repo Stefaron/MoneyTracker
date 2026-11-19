@@ -1,0 +1,13 @@
+excluded:
+  - MoneyTrackerKit/.build
+  - DerivedData
+
+line_length:
+  warning: 120
+  error: 160
+
+identifier_name:
+  min_length: 2
+
+trailing_comma:
+  mandatory_comma: true

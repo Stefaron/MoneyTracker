@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: Lint
+        run: |
+          brew install swiftlint swiftformat
+          swiftlint --strict
+          swiftformat . --lint
+
+      - name: Package tests
+        working-directory: MoneyTrackerKit
+        run: |
+          UDID=$(xcrun simctl list devices available --json | python3 -c "import json,sys;d=json.load(sys.stdin)['devices'];print(next(x['udid'] for r in sorted(d, reverse=True) for x in d[r] if 'iPhone' in x['name']))")
+          echo "Simulator UDID: $UDID"
+          xcodebuild test \
+            -scheme MoneyTrackerKit-Package \
+            -destination "id=$UDID" \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: App build
+        run: >
+          xcodebuild build
+          -project MoneyTracker.xcodeproj
+          -scheme MoneyTracker
+          -destination 'generic/platform=iOS Simulator'
+          CODE_SIGNING_ALLOWED=NO
